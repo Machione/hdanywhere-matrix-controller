@@ -1,0 +1,146 @@
+:root {
+    --main-colour: #3b5aa5;
+    --gray-colour: #7E90B5;
+    --bold-colour: #618FF2;
+    --light-highlight-colour: #AAC1F2;
+    --dark-highlight-colour: #2E4473;
+    --primary-spacing: 5vmin;
+    --secondary-spacing: 1vmin;
+}
+
+body {
+    margin: 5vmin;
+    padding: 5vmin;
+    font-family: "Asap", sans-serif;
+    border: 5px solid var(--main-colour);
+}
+
+p {
+    margin: 0;
+    padding-bottom: 0.5em;
+}
+
+ul { 
+    margin: 0;
+}
+
+
+.loading {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    border: 4px solid black;
+    border-top: 4px solid var(--main-colour);
+    border-bottom: 4px solid var(--main-colour);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s ease infinite;
+    z-index: 6;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#dim {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 5;
+}
+
+.header {
+    display: flex;
+    gap: var(--primary-spacing);
+    margin-bottom: var(--primary-spacing);
+    align-items: center;
+    color: var(--main-colour);
+}
+
+.header > img {
+    width: 15vmin;
+    height: auto;
+}
+
+.header > h1 {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+
+.section {
+    padding-bottom: calc(var(--primary-spacing) * 3);
+}
+
+.container {
+    display: flex;
+    gap: var(--secondary-spacing);
+}
+
+
+figure {
+    flex-basis: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0;
+    padding: var(--secondary-spacing);
+}
+
+figure > img {
+    width: 5vmin;
+    height: auto;
+    margin-bottom: var(--secondary-spacing);
+}
+
+figure > figcaption {
+    display: block;
+}
+
+
+.inputFigure {
+    padding-top: 3vmin;
+    padding-bottom: 3vmin;
+    cursor: pointer;
+    border: 3px solid var(--light-highlight-colour);
+}
+
+.inputFigure:hover {
+    border: 3px solid var(--dark-highlight-colour);
+}
+
+.activeInput {
+    color: white;
+    background-color: var(--light-highlight-colour);
+}
+
+.inactiveInput {
+    background-color: white;
+}
+
+
+.connectedOutput {
+    background-color: var(--light-highlight-colour);
+}
+
+.disconnectedOutput {
+    background-color: none;
+}
+
+
+.settingSection {
+    padding-top: var(--secondary-spacing);
+}
+
+#ipAddressForm {
+    width: 13ch;
+}
+
+.outputCheckboxContainer {
+    display: block;
+}

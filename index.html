@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HDAnywhere Modular Matrix Controller</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap&family=Roboto+Slab&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    
+    <div class="header">
+      <img src="./img/logo.png" alt="HDAnywhere Logo">
+      <h1>Modular Matrix Controller</h1>
+    </div>
+    
+    
+    <div class="section">
+      <div class="container">
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input0Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input0</figcaption>
+        </figure>
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input1Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input1</figcaption>
+        </figure>
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input2Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input2</figcaption>
+        </figure>
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input3Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input3</figcaption>
+        </figure>
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input4Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input4</figcaption>
+        </figure>
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input5Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input5</figcaption>
+        </figure>
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input6Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input6</figcaption>
+        </figure>
+        <figure class="inputFigure disconnectedInput inactiveInput" id="input7Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>input7</figcaption>
+        </figure>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="container">
+        <figure class="outputFigure disconnectedOutput" id="output0Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output0</figcaption>
+        </figure>
+        <figure class="outputFigure disconnectedOutput" id="output1Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output1</figcaption>
+        </figure>
+        <figure class="outputFigure disconnectedOutput" id="output2Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output2</figcaption>
+        </figure>
+        <figure class="outputFigure disconnectedOutput" id="output3Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output3</figcaption>
+        </figure>
+        <figure class="outputFigure disconnectedOutput" id="output4Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output4</figcaption>
+        </figure>
+        <figure class="outputFigure disconnectedOutput" id="output5Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output5</figcaption>
+        </figure>
+        <figure class="outputFigure disconnectedOutput" id="output6Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output6</figcaption>
+        </figure>
+        <figure class="outputFigure disconnectedOutput" id="output7Figure">
+          <img src="./img/disconnected.png" alt="disconnected">
+          <figcaption>output7</figcaption>
+        </figure>
+      </div>
+    </div>
+    
+    <details>
+      <summary>Advanced Settings...</summary>
+      
+      <div class="settingSection">
+        <label for="ipAddressForm">Matrix IP Address:</label>
+        <input type="text" id="ipAddressForm">
+        <p>This is displayed on the screen of the Matrix for a few seconds after it has booted up. Removing the SD card from the front of the device and re-inserting it will reboot the Matrix.</p>
+      </div>
+      
+      <div class="settingSection">
+        <p>Outputs to switch:</p>
+        <div id="outputCheckboxes">
+          <div class="outputCheckboxContainer" id="output0CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output0Checkbox" checked>
+            <label for="output0Checkbox">output0</label>
+          </div>
+          <div class="outputCheckboxContainer" id="output1CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output1Checkbox" checked>
+            <label for="output1Checkbox">output1</label>
+          </div>
+          <div class="outputCheckboxContainer" id="output2CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output2Checkbox" checked>
+            <label for="output2Checkbox">output2</label>
+          </div>
+          <div class="outputCheckboxContainer" id="output3CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output3Checkbox" checked>
+            <label for="output3Checkbox">output3</label>
+          </div>
+          <div class="outputCheckboxContainer" id="output4CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output4Checkbox" checked>
+            <label for="output4Checkbox">output4</label>
+          </div>
+          <div class="outputCheckboxContainer" id="output5CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output5Checkbox" checked>
+            <label for="output5Checkbox">output5</label>
+          </div>
+          <div class="outputCheckboxContainer" id="output6CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output6Checkbox" checked>
+            <label for="output6Checkbox">output6</label>
+          </div>
+          <div class="outputCheckboxContainer" id="output7CheckboxContainer">
+            <input type="checkbox" class="outputCheckbox" id="output7Checkbox" checked>
+            <label for="output7Checkbox">output7</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="settingSection" id="staticOutputInfo">
+        <p>The following are configured to be static outputs meaning you cannot change which input source they receive from using this page. To do so, visit the Matrix's native setup interface at the IP address listed above.</p>
+        <ul></ul>
+      </div>
+      
+      <div class="settingSection">
+        <p>For more information about this page, <a href="https://github.com/Machione/hdanywhere-matrix-controller">visit the GitHub repository</a>.</p>
+      </div>
+    </details>
+    
+    <div id="dim">
+      <div class="loading"></div>
+    </div>
+    
+    <script src="./js/leader-line.min.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

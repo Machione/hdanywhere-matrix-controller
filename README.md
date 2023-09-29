@@ -1,2 +1,1 @@
-# hdanywhere-matrix-controller
-Control HDAnywhere HDMI / HDBaseT Modular Matrix
+Special thanks to [LeaderLine](https://anseki.github.io/leader-line/).
