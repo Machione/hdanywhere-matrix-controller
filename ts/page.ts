@@ -68,16 +68,12 @@ async function waitUntilSwitched(ipAddress: string, inputBay: number, expectedOu
             }
         }
         
-        if ( actualOutputBays.length === expectedOutputBays.length ) {
-            expectedOutputBays.sort();
-            actualOutputBays.sort();
-            if ( actualOutputBays.every((value, index) => value === expectedOutputBays[index]) ) {
-                return;
+        for ( let expectedOutputBay of expectedOutputBays ) {
+            if ( actualOutputBays.indexOf(expectedOutputBay) === -1 ) {
+                await sleep(1000);
+                await waitUntilSwitched(ipAddress, inputBay, expectedOutputBays);
             }
         }
-    
-        await sleep(1000);
-        await waitUntilSwitched(ipAddress, inputBay, expectedOutputBays);
     } catch (error) {
         console.error(error);
         errorHandlingPrompt(error);
@@ -250,6 +246,7 @@ function updateConnectionLines(connectionInfo: ConnectionInfo) : void {
         line.remove();
     }
     connectionLines = [];
+    const lineColours = ["#3B5AA5", "#192747", "#879ED4", "#22345E", "#6986C9", "#2A4176", "#4B6EBE", "#334E8D"];
     
     let maxLineSpread = 70; // Max vertical distance the lines can be spread apart, in units of LeaderLine gravity.
     let maxNumberInputs = 8;
@@ -285,7 +282,7 @@ function updateConnectionLines(connectionInfo: ConnectionInfo) : void {
             for ( let connectedOutputBay of displayOrderConnectedOutputs ) {
                 let connectedOutputID = "output" + connectedOutputBay + "Figure";
                 let connectedOutput = document.getElementById(connectedOutputID);
-                let colour = "#3b5aa5";
+                let colour = lineColours[indexVisibleInputFigure];
                 if ( connectedOutput && connectedOutput.classList.contains("staticOutput") ) {
                     colour = "#888b93";
                 }
