@@ -121,15 +121,6 @@ figure > figcaption {
 }
 
 
-.connectedOutput {
-    background-color: var(--light-highlight-colour);
-}
-
-.disconnectedOutput {
-    background-color: none;
-}
-
-
 .settingSection {
     padding-top: var(--secondary-spacing);
 }

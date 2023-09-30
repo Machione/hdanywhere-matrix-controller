@@ -193,21 +193,12 @@ function updateOutputFiguresAndCheckboxes(connectionInfo: ConnectionInfo) : void
             if ( config.staticOutputBays.indexOf(bay) >= 0 ) {
                 image.src = "./img/static.png";
                 image.alt = "static";
-                figure.classList.remove("disconnectedOutput");
-                figure.classList.remove("connectedOutput");
-                figure.classList.add("staticOutput");
             } else if ( outputPortInfo.Status === 0 ) {
                 image.src = "./img/connected.png";
                 image.alt = "connected";
-                figure.classList.remove("disconnectedOutput");
-                figure.classList.remove("staticOutput");
-                figure.classList.add("connectedOutput");
             } else {
                 image.src = "./img/disconnected.png";
                 image.alt = "disconnected";
-                figure.classList.remove("connectedOutput");
-                figure.classList.remove("staticOutput");
-                figure.classList.add("disconnectedOutput");
             }
         }
         
@@ -280,7 +271,7 @@ function updateConnectionLines(connectionInfo: ConnectionInfo) : void {
                 let connectedOutputID = "output" + connectedOutputBay + "Figure";
                 let connectedOutput = document.getElementById(connectedOutputID);
                 let colour = lineColours[indexVisibleInputFigure];
-                if ( connectedOutput && connectedOutput.classList.contains("staticOutput") ) {
+                if ( connectedOutput && config.staticOutputBays.indexOf(connectedOutputBay) >= 0 ) {
                     colour = "#888b93";
                 }
                 let line = new LeaderLine(
