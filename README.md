@@ -4,7 +4,7 @@ Video matrices are very useful when you want to drive multiple displays from mul
 
 This controller is designed to allow multi-output switching via a single button click through a lightweight, intuitive, yet powerful web-based UI that can run anywhere.
 
-> insert screenshot
+![Screenshot](https://raw.githubusercontent.com/Machione/hdanywhere-matrix-controller/main/screenshot.gif)
 
 Although this controller is designed to work with the HDanwhere Modular matrices (8x8 tested, but should also work with the 4x4), it should be easy to apply the same methodology to any brand or model of matrix that supports control over HTTP requests. All the interaction with the matrix has been abstracted into the [matrix.ts](./ts/matrix.ts), so that should be the only code that you need to edit to make it work with your brand/model.
 
