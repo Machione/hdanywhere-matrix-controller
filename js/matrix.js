@@ -10,11 +10,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 function communicateWithMatrix(ipAddress, path) {
     return __awaiter(this, void 0, void 0, function* () {
         const url = "http://" + ipAddress + path;
+        // Wait for x milliseconds to receive a response from the matrix before throwing an error.
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 2000);
         try {
             let response = yield fetch(url, { signal: controller.signal });
             let data = yield response.json();
+            // A valid response will contain a "Result" key with value true.
             if (!("Result" in data)) {
                 throw new Error("Invalid response from the matrix.");
             }
@@ -30,6 +32,7 @@ function communicateWithMatrix(ipAddress, path) {
 }
 export function isAlive(ipAddress) {
     return __awaiter(this, void 0, void 0, function* () {
+        // Check we can communicate with the matrix and it's in a healthy state.
         let data = yield communicateWithMatrix(ipAddress, "/System/Details");
         if (data["StatusMessage"] !== "Healthy") {
             throw new Error("Matrix is unhealthy and probably needs rebooting.");
@@ -41,8 +44,7 @@ function getPortList(ipAddress) {
         let data = yield communicateWithMatrix(ipAddress, "/Port/List");
         let inputPorts = [];
         let outputPorts = [];
-        for (let i = 0; i < data["Ports"].length; i++) {
-            let port = data["Ports"][i];
+        for (let port of data["Ports"]) {
             if (port.Mode === "Input") {
                 inputPorts.push(port);
             }
@@ -58,8 +60,7 @@ export function getConnectionInfo(ipAddress) {
     return __awaiter(this, void 0, void 0, function* () {
         let portDetails = yield getPortList(ipAddress);
         let ioMapping = new Map();
-        for (let i = 0; i < portDetails.Input.length; i++) {
-            let inputPortInfo = portDetails.Input[i];
+        for (let inputPortInfo of portDetails.Input) {
             let bay = inputPortInfo.Bay;
             let inputPortDetails = yield communicateWithMatrix(ipAddress, "/Port/Details/Input/" + bay);
             let connectedOutputs = inputPortDetails["TransmissionNodes"];

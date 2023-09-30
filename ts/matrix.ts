@@ -1,16 +1,22 @@
 async function communicateWithMatrix(ipAddress: string, path: string) {
     const url = "http://" + ipAddress + path;
+    
+    // Wait for x milliseconds to receive a response from the matrix before throwing an error.
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 2000);
+    
     try {
         let response = await fetch(url, { signal: controller.signal });
         let data = await response.json();
-        if ( !("Result" in data) ) {
+        
+        // A valid response will contain a "Result" key with value true.
+        if ( !( "Result" in data ) ) {
             throw new Error("Invalid response from the matrix.")
         }
         if ( data["Result"] !== true ) {
             throw new Error("Result not returned from the matrix.")
         }
+        
         return data;
     } catch(err) {
         throw new Error("Unable to communicate with the matrix.")
@@ -19,6 +25,7 @@ async function communicateWithMatrix(ipAddress: string, path: string) {
 
 
 export async function isAlive(ipAddress: string) {
+    // Check we can communicate with the matrix and it's in a healthy state.
     let data = await communicateWithMatrix(ipAddress, "/System/Details");
     if ( data["StatusMessage"] !== "Healthy") {
         throw new Error("Matrix is unhealthy and probably needs rebooting.")
@@ -49,8 +56,7 @@ async function getPortList(ipAddress: string) : Promise<PortList> {
     let data = await communicateWithMatrix(ipAddress, "/Port/List");
     let inputPorts: Array<InputPortInfo> = [];
     let outputPorts: Array<OutputPortInfo> = [];
-    for ( let i = 0; i < data["Ports"].length; i++ ) {
-        let port = data["Ports"][i];
+    for ( let port of data["Ports"] ) {
         if ( port.Mode === "Input") {
             inputPorts.push(port);
         } else if ( port.Mode === "Output" ) {
@@ -69,8 +75,7 @@ export interface ConnectionInfo extends PortList {
 export async function getConnectionInfo(ipAddress: string) : Promise<ConnectionInfo> {
     let portDetails = await getPortList(ipAddress);
     let ioMapping = new Map<Number, Array<number>>();
-    for ( let i = 0; i < portDetails.Input.length; i++ ) {
-        let inputPortInfo = portDetails.Input[i];
+    for ( let inputPortInfo of portDetails.Input ) {
         let bay = inputPortInfo.Bay;
         let inputPortDetails = await communicateWithMatrix(ipAddress, "/Port/Details/Input/" + bay);
         let connectedOutputs = inputPortDetails["TransmissionNodes"];
