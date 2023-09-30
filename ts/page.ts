@@ -93,8 +93,7 @@ async function clickHandler(event: MouseEvent) {
             await waitUntilSwitched(ipAddress, inputBay, outputBays);
             // Change the input button colours.
             let inputFigures = document.getElementsByClassName("inputFigure");
-            for ( let i = 0; i < inputFigures.length; i++ ) {
-                let figure = inputFigures[i];
+            for ( let figure of inputFigures ) {
                 if ( figure.id.includes(String(inputBay)) ) {
                     figure.classList.add("activeInput");
                     figure.classList.remove("inactiveInput");
@@ -122,8 +121,7 @@ function updateInputFigures(connectionInfo: ConnectionInfo) : void {
     }
     
     // Show and update the information on buttons for connected inputs.
-    for ( let i = 0; i < connectionInfo.Input.length; i++ ) {
-        let inputPortInfo = connectionInfo.Input[i];
+    for ( let inputPortInfo of connectionInfo.Input ) {
         let bay = inputPortInfo.Bay;
         let ioMapping = connectionInfo.inputToOutputMapping.get(bay);
         // We should display the button if the input is connected to an output
@@ -181,8 +179,7 @@ function updateOutputFiguresAndCheckboxes(connectionInfo: ConnectionInfo) : void
     }
     
     // Update the information on outputs
-    for ( let i = 0; i < connectionInfo.Output.length; i++ ) {
-        let outputPortInfo = connectionInfo.Output[i];
+    for ( let outputPortInfo of connectionInfo.Output ) {
         let bay = outputPortInfo.Bay;
         let figureID = "output" + bay + "Figure";
         let figure = document.getElementById(figureID);
