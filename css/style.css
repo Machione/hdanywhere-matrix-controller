@@ -29,12 +29,12 @@ ul {
     position: relative;
     top: 50%;
     left: 50%;
-    border: 4px solid black;
+    border: 4px solid var(--light-highlight-colour);
     border-top: 4px solid var(--main-colour);
     border-bottom: 4px solid var(--main-colour);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     animation: spin 1s ease infinite;
     z-index: 6;
 }
@@ -73,13 +73,10 @@ ul {
 }
 
 
-.section {
-    padding-bottom: calc(var(--primary-spacing) * 3);
-}
-
 .container {
     display: flex;
     gap: var(--secondary-spacing);
+    padding-bottom: calc(var(--primary-spacing) * 3);
 }
 
 
