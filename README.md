@@ -25,14 +25,14 @@ Although this controller is designed to work with the HDanwhere Modular matrices
 ## Installation
 
 1. Download the [latest release](https://github.com/Machione/hdanywhere-matrix-controller/releases/latest).
-2. The code is designed to run within a simple HTTP server. If your system has [Python 3](https://www.python.org) installed, then this is as simple as executing `python3 -m http.server` from within the directory of the index.html. If not, then try [Mongoose](https://mongoose.ws/binary/).
+2. The code is designed to run within a simple HTTP server. If your system has [Python 3](https://www.python.org) installed, then this is as simple as executing `python3 -m http.server` from within the directory of the index.html. If not, then try [Mongoose](https://mongoose.ws/binary/) or anothe server of your choice.
 3. Go to <http://localhost:8000/>.
 
 ## Special Thanks
 
 - [LeaderLine](https://anseki.github.io/leader-line/)
 - [Font Awesome](https://fontawesome.com)
-- The HDanywhere support team. Although the product I was using for testing is discontinued, they were very supportive and helpful with my enquiries. In particular, this [manual of HTTP, IR, and serial codes was helpful](https://docs.google.com/document/d/12xdnd2cLizXNOwUH1vIXhhS6DVLToKhTEnpuNrifNjk/edit?usp=sharing) was helpful.
+- The HDanywhere support team. Although the product I was using for testing is discontinued, they were very supportive and helpful with my enquiries. In particular, this [manual of HTTP, IR, and serial codes](https://docs.google.com/document/d/12xdnd2cLizXNOwUH1vIXhhS6DVLToKhTEnpuNrifNjk/edit?usp=sharing) was helpful.
 
 ## Development
 
